@@ -12,7 +12,11 @@ import Poll from './components/Poll.vue';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #dfdfdf;
   margin-top: 60px;
+}
+
+body {
+  background-color: #2f2f2f;
 }
 </style>

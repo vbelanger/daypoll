@@ -8,6 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@jamescoyle/vue-icon": "^0.1.2",
+    "@mdi/js": "^6.5.95",
     "axios": "^0.24.0",
     "node-html-parser": "^5.1.0",
     "vue": "^3.2.25"
