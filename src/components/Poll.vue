@@ -1,15 +1,21 @@
-<script setup>
-import { ref } from 'vue';
+<script>
+import axios from 'axios';
 
-defineProps({
-  msg: String,
-});
-
-const count = ref(0);
+export default {
+  data() {
+    return {
+      command: 'Fetching poll info...',
+    };
+  },
+  async created() {
+    const response = await axios.get('/api/poll');
+    this.command = response.data;
+  },
+};
 </script>
 
 <template>
-  <pre>test</pre>
+  <pre>{{ command }}</pre>
 </template>
 
 <style scoped></style>
