@@ -9,7 +9,7 @@ export default {
   },
   data() {
     return {
-      loaded: false,
+      loaded: true,
       command: 'Fetching poll info...',
       icon: mdiContentCopy,
     };
@@ -37,18 +37,16 @@ export default {
 
 <style scoped>
 .command {
-  padding: 4px 0;
+  padding: 6px 0;
   border-radius: 10px;
   border: 2px solid lightgrey;
   margin: 10px 30px;
-}
-span {
-  margin-right: 20px;
 }
 
 svg {
   cursor: pointer;
   height: 14px;
   color: lightskyblue;
+  margin-right: 6px;
 }
 </style>
