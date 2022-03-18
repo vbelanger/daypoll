@@ -19,12 +19,17 @@ export default {
     this.command = response.data;
     this.loaded = true;
   },
+  methods: {
+    copy() {
+      navigator.clipboard.writeText(this.command);
+    },
+  },
 };
 </script>
 
 <template>
   <div class="command">
-    <svg-icon v-if="loaded" type="mdi" :path="icon" @click="navigator.clipboard.writeText(command)"></svg-icon>
+    <svg-icon v-if="loaded" type="mdi" :path="icon" @click="copy"></svg-icon>
     <span>{{ command }}</span>
   </div>
   <div v-if="loaded">Usage: /timepoll {paste command here}</div>
