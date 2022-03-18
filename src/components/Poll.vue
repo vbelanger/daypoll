@@ -9,7 +9,7 @@ export default {
   },
   data() {
     return {
-      loaded: true,
+      loaded: false,
       command: 'Fetching poll info...',
       icon: mdiContentCopy,
     };
@@ -40,10 +40,10 @@ export default {
   padding: 4px 0;
   border-radius: 10px;
   border: 2px solid lightgrey;
-  margin-bottom: 10px;
+  margin: 10px 30px;
 }
 span {
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 svg {
