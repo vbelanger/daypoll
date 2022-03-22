@@ -15,11 +15,10 @@ export default {
       icon: mdiContentCopy,
     };
   },
-  created() {
-    axios.get('/api/poll').then((response) => {
-      this.commands = response.data;
-      this.loaded = true;
-    });
+  async created() {
+    const response = await axios.get('/api/poll');
+    this.commands = response.data;
+    this.loaded = true;
   },
   methods: {
     copy() {
@@ -39,9 +38,9 @@ export default {
   <div v-if="loaded">
     <div style="text-align: left; margin-left: 30px">
       <input type="radio" id="today" value="today" v-model="day" />
-      <label for="today">Today ({{ commands.today.day }})</label>
+      <label for="today">Today ({{ commands?.today.day }})</label>
       <input type="radio" id="tomorrow" value="tomorrow" v-model="day" />
-      <label for="tomorrow">Tomorrow ({{ commands.tomorrow.day }})</label>
+      <label for="tomorrow">Tomorrow ({{ commands?.tomorrow.day }})</label>
     </div>
     <div class="command">
       <svg-icon type="mdi" :path="icon" @click="copy"></svg-icon>
