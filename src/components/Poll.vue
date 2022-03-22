@@ -27,6 +27,7 @@ export default {
   },
   computed: {
     command() {
+      if (!this.commands) return '';
       const prefix = "Today's cringe time: 2h ";
       return prefix + this.commands[this.day].holidays.map((a, i) => `answer${i + 1}: ${a}`).join(' ');
     },
