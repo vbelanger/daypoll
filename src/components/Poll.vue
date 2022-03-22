@@ -15,10 +15,11 @@ export default {
       icon: mdiContentCopy,
     };
   },
-  async created() {
-    const response = await axios.get('/api/poll');
-    this.commands = response.data;
-    this.loaded = true;
+  created() {
+    axios.get('/api/poll').then((response) => {
+      this.commands = response.data;
+      this.loaded = true;
+    });
   },
   methods: {
     copy() {
