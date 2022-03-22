@@ -8,7 +8,7 @@ const getHolidays = async (url) => {
 };
 
 export const handler = async () => {
-  const today = await getHolidays('https://nationaldaycalendar.com/what-is-today/');
+  const today = await getHolidays('https://nationaldaycalendar.com/what-day-is-it/');
   const tomorrow = await getHolidays('https://nationaldaycalendar.com/tomorrow/');
 
   return {
