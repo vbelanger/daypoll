@@ -5,7 +5,7 @@ const getHolidays = async (url) => {
   const response = await axios.get(url);
   const root = parse(response.data);
   const holidays = root.querySelectorAll('span.evcal_desc2.evcal_event_title').map((e) => e.text);
-  const day = root.querySelector('.title-info strong').text;
+  const day = `${root.querySelector('.evcal_cblock .month').text} ${root.querySelector('.evcal_cblock .date').text}`;
 
   return {
     day,
