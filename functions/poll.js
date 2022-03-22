@@ -4,7 +4,13 @@ import parse from 'node-html-parser';
 const getHolidays = async (url) => {
   const response = await axios.get(url);
   const root = parse(response.data);
-  return root.querySelectorAll('span.evcal_desc2.evcal_event_title').map((e) => e.text);
+  const holidays = root.querySelectorAll('span.evcal_desc2.evcal_event_title').map((e) => e.text);
+  const day = root.querySelector('.title-info strong').text;
+
+  return {
+    day,
+    holidays,
+  };
 };
 
 export const handler = async () => {
