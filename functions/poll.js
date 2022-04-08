@@ -14,7 +14,7 @@ const getHolidays = async (url) => {
 const extractHolidays = (root, tomorrow) => {
   let selector = '.current-day';
   if (tomorrow) selector += ' + li';
-  const holidays = root.querySelectorAll(`${selector} li a`).map((e) => e.text);
+  const holidays = root.querySelectorAll(`${selector} li a`).map((e) => toTitleCase(e.text));
   const day = root.querySelector(`${selector} .title`).text.replace('Days', '').trim();
 
   return {
@@ -22,6 +22,8 @@ const extractHolidays = (root, tomorrow) => {
     holidays,
   };
 };
+
+const toTitleCase = (text) => text.replace(/\w\S*/g, (s) => s.charAt(0).toUpperCase() + s.substr(1).toLowerCase());
 
 export const handler = async () => {
   return {
