@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     command() {
-      const prefix = "Today's cringe time: 2h ";
+      const prefix = "/timepoll question: Today's cringe time: 2h ";
       const answers = this.commands[this.day].holidays.map((a, i) => `answer${i + 1}: ${a}`);
       answers.push(`answer${answers.length + 1}: No post today fuck you`);
       return prefix + answers.join(' ');
@@ -48,7 +48,7 @@ export default {
       <svg-icon type="mdi" :path="icon" @click="copy"></svg-icon>
       <span>{{ command }}</span>
     </div>
-    <div>Usage: /timepoll {paste command here}</div>
+    <div>Usage: Copy and paste command into discord, the bot should pick it up</div>
   </div>
   <div v-else>Fetching poll info...</div>
 </template>
