@@ -6,12 +6,12 @@ const getHolidays = async (url) => {
   const root = parse(response.data);
 
   return {
-    today: extractHolidays(false),
-    tomorrow: extractHolidays(true),
+    today: extractHolidays(root, false),
+    tomorrow: extractHolidays(root, true),
   };
 };
 
-const extractHolidays = (tomorrow) => {
+const extractHolidays = (root, tomorrow) => {
   const selector = '.current-day';
   if (tomorrow) selector += ' + li';
   const holidays = root.querySelectorAll(`${selector} li a`).map((e) => e.text);
