@@ -12,7 +12,7 @@ const getHolidays = async (url) => {
 };
 
 const extractHolidays = (root, tomorrow) => {
-  const selector = '.current-day';
+  let selector = '.current-day';
   if (tomorrow) selector += ' + li';
   const holidays = root.querySelectorAll(`${selector} li a`).map((e) => e.text);
   const day = root.querySelector(`${selector} .title`).text.replace('Days', '').trim();
